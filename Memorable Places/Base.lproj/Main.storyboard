@@ -35,10 +35,13 @@
                     <navigationItem key="navigationItem" title="My Locations" id="zjm-1B-V1p">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ts4-XY-UfP">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="Igq-FQ-tjP"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="toMap" id="Igq-FQ-tjP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="lwJ-Qc-Q4p" id="irU-Xq-4LJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzb-NO-4xt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,12 +74,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ieQ-0C-Dt0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4NR-Ct-uBo"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ieQ-0C-Dt0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YIW-b5-ayX"/>
+                            <constraint firstItem="ieQ-0C-Dt0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gaD-BQ-ygM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ieQ-0C-Dt0" secondAttribute="bottom" id="mSv-wL-Xpt"/>
+                            <constraint firstAttribute="trailing" secondItem="ieQ-0C-Dt0" secondAttribute="trailing" id="xuY-Hc-Kle"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="map" destination="ieQ-0C-Dt0" id="Ivi-YR-hPp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="198"/>
+            <point key="canvasLocation" x="392.80000000000001" y="197.45127436281859"/>
         </scene>
     </scenes>
 </document>
